@@ -1,0 +1,35 @@
+<!-- Page Content -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">{{event.name}}
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" src={{event.imgUrl}} alt={{event.name}}>
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Event Details</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+      <h3 class="my-3" >Category: {{event.category}}</h3>
+      <h3 class="my-3" >Artists</h3>
+      <div *ngFor='let artist of event.artists'>
+        <ul>
+          <li>{{artist}}</li>
+        </ul>
+      </div>
+      <h3 class="my-3" >Date: {{event.date}}</h3>
+      <h3 class="my-3" >Price: {{event.price}}</h3>
+
+      <app-rating-star [rating]="event.rating"></app-rating-star>
+
+    </div>
+
+  </div>
+  <!-- /.row -->
+

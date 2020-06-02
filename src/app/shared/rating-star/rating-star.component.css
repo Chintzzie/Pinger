@@ -1,0 +1,13 @@
+
+.crop {
+  overflow: hidden;
+}
+div {
+  cursor: pointer;
+}
+
+.star {
+  width: 15px;
+  height: 15px;
+  color: darkgoldenrod;
+}

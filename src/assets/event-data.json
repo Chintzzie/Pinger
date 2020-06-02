@@ -1,0 +1,146 @@
+[
+  {
+    "name":"Sunburn",
+    "date": "2020-05-31",
+    "artists": ["DJ kshmr","Bieber"],
+    "rating": 8.3,
+    "imgUrl": "assets/imgs/1.jpg",
+    "price": 96.0,
+    "category": "Electronic"
+  },
+  {
+    "name":"HackMusic",
+    "date": "2019-01-16",
+    "artists": ["Pitbull","Bieber"],
+    "rating": 7.5,
+    "imgUrl": "assets/imgs/2.jpg",
+    "price": 63.0,
+    "category": "Jazz"
+  },
+  {
+    "name":"BreakRock",
+    "date": "2019-01-16",
+    "artists": ["Eminem","MJ"],
+    "rating": 8.9,
+    "imgUrl": "assets/imgs/3.jpg",
+    "price": 155.0,
+    "category": "Rock"
+  },
+  {
+    "name":"HOTmusic",
+    "date": "2019-01-16",
+    "artists": ["Jennifer Lopez","Selena Gomez"],
+    "rating": 7.0,
+    "imgUrl": "assets/imgs/4.jpg",
+    "price": 84,
+    "category": "Electronic"
+  },
+  {
+    "name":"Sunburn",
+    "date": "2020-05-31",
+    "artists": ["DJ kshmr","Bieber"],
+    "rating": 8.3,
+    "imgUrl": "assets/imgs/1.jpg",
+    "price": 96.0,
+    "category": "Electronic"
+  },
+  {
+    "name":"HackMusic",
+    "date": "2019-01-16",
+    "artists": ["Pitbull","Bieber"],
+    "rating": 7.5,
+    "imgUrl": "assets/imgs/2.jpg",
+    "price": 63.0,
+    "category": "Jazz"
+  },
+  {
+    "name":"BreakRock",
+    "date": "2019-01-16",
+    "artists": ["Eminem","MJ"],
+    "rating": 8.9,
+    "imgUrl": "assets/imgs/3.jpg",
+    "price": 155.0,
+    "category": "Rock"
+  },
+  {
+    "name":"HOTmusic",
+    "date": "2019-01-16",
+    "artists": ["Jennifer Lopez","Selena Gomez"],
+    "rating": 7.0,
+    "imgUrl": "assets/imgs/4.jpg",
+    "price": 84,
+    "category": "Electronic"
+  },
+  {
+    "name":"Sunburn",
+    "date": "2020-05-31",
+    "artists": ["DJ kshmr","Bieber"],
+    "rating": 8.3,
+    "imgUrl": "assets/imgs/1.jpg",
+    "price": 96.0,
+    "category": "Electronic"
+  },
+  {
+    "name":"HackMusic",
+    "date": "2019-01-16",
+    "artists": ["Pitbull","Bieber"],
+    "rating": 7.5,
+    "imgUrl": "assets/imgs/2.jpg",
+    "price": 63.0,
+    "category": "Jazz"
+  },
+  {
+    "name":"BreakRock",
+    "date": "2019-01-16",
+    "artists": ["Eminem","MJ"],
+    "rating": 8.9,
+    "imgUrl": "assets/imgs/3.jpg",
+    "price": 155.0,
+    "category": "Rock"
+  },
+  {
+    "name":"HOTmusic",
+    "date": "2019-01-16",
+    "artists": ["Jennifer Lopez","Selena Gomez"],
+    "rating": 7.0,
+    "imgUrl": "assets/imgs/4.jpg",
+    "price": 84,
+    "category": "Electronic"
+  },{
+    "name":"Sunburn",
+    "date": "2020-05-31",
+    "artists": ["DJ kshmr","Bieber"],
+    "rating": 8.3,
+    "imgUrl": "assets/imgs/1.jpg",
+    "price": 96.0,
+    "category": "Electronic"
+  },
+  {
+    "name":"HackMusic",
+    "date": "2019-01-16",
+    "artists": ["Pitbull","Bieber"],
+    "rating": 7.5,
+    "imgUrl": "assets/imgs/2.jpg",
+    "price": 63.0,
+    "category": "Jazz"
+  },
+  {
+    "name":"BreakRock",
+    "date": "2019-01-16",
+    "artists": ["Eminem","MJ"],
+    "rating": 8.9,
+    "imgUrl": "assets/imgs/3.jpg",
+    "price": 155.0,
+    "category": "Rock"
+  },
+  {
+    "name":"HOTmusic",
+    "date": "2019-01-16",
+    "artists": ["Jennifer Lopez","Selena Gomez"],
+    "rating": 7.0,
+    "imgUrl": "assets/imgs/4.jpg",
+    "price": 84,
+    "category": "Electronic"
+  }
+
+]
