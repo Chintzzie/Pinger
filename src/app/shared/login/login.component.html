@@ -1,0 +1,38 @@
+<div class="container">
+  <form
+    [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label for="username">Email</label>
+          <input type="email"   class="form-control" formControlName="userName" />
+          <span *ngIf="EmailLoading" class="spinner-border spinner-border-sm mr-1"></span>
+          <div *ngIf="loginForm.controls.userName.valid && !EmailLoading">
+            <h3 *ngIf="isEmailValid" class="valid" >Email Verified!</h3>
+            <h3 *ngIf="!isEmailValid" class="invalid">Email Not Registered yet!</h3>
+          </div>
+        <div  *ngIf="showErrorsEmail &&
+        ( loginForm.controls.userName.dirty || loginForm.controls.userName.touched)
+        && loginForm.controls.userName.invalid" >
+          <h3 class="invalid" *ngIf="loginForm.controls.userName.errors?.invalidity">
+            {{loginForm.controls.userName.errors?.invalidity}}</h3>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" autofocus class="form-control" formControlName="password"  />
+          <div class="invalid"  *ngIf="(  loginForm.controls.password.dirty && loginForm.controls.password.touched )&& loginForm.controls.password.invalid" >
+            <h3 *ngIf="!invalidPwd && loginForm.controls.password.errors?.required">Password is required!</h3>
+          </div>
+          <h3 *ngIf="invalidPwd" class="invalid">Password Incorrect!</h3>
+      </div>
+
+      <div class="form-group">
+          <button [disabled]="loginForm.invalid || !isEmailValid || EmailLoading" class="btn btn-primary">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Login
+          </button>
+          <a class="btn btn-warning" routerLink="/register" >Register</a>
+      </div>
+
+  </form>
+</div>

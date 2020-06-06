@@ -1,7 +1,7 @@
 [
   {
     "name":"Sunburn",
-    "date": "2020-05-31",
+    "date": "2020-06-20",
     "artists": ["DJ kshmr","Bieber"],
     "rating": 8.3,
     "imgUrl": "assets/imgs/1.jpg",
@@ -10,7 +10,7 @@
   },
   {
     "name":"HackMusic",
-    "date": "2019-01-16",
+    "date": "2020-07-12",
     "artists": ["Pitbull","Bieber"],
     "rating": 7.5,
     "imgUrl": "assets/imgs/2.jpg",
@@ -19,7 +19,7 @@
   },
   {
     "name":"BreakRock",
-    "date": "2019-01-16",
+    "date": "2020-06-05",
     "artists": ["Eminem","MJ"],
     "rating": 8.9,
     "imgUrl": "assets/imgs/3.jpg",

@@ -1,0 +1,18 @@
+.invalid{
+  color: whitesmoke;
+
+  background-color: rgba(251, 93, 93, 0.952);
+}
+
+.valid{
+  color: whitesmoke;
+
+  background-color: rgba(103, 252, 116, 0.952);
+}
+
+
+.form-group{
+  width: 80%;
+}
+
+

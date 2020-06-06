@@ -1,4 +1,3 @@
-
 <div class="jumbotron jumbotron-fluid" style="padding: 2%;text-justify: center;">
   <div class="container">
     <h1  class="display-4">Pinger</h1>
@@ -6,16 +5,21 @@
   </div>
 </div>
 
- <div  class="form-inline" >
-    <input  id ="searchBar" class="form-control mr-sm-2" type="search" [(ngModel)]="searchIn"
-    (input)="searchVal = $event.target.value;updateSuggestions();"
-      placeholder="Search for Events" aria-label="Search" #searchTerm>
-    <button class="btn btn-outline-success my-2 my-sm-0"  (click)="searchEvents(searchTerm.value)">Search</button>
-    <br>
-    <ul *ngFor="let suggestion of suggestions">
-      <h3 (click)="update(suggestion)">{{suggestion}}</h3>
-    </ul>
+ <div  class="form-inline searchForm" >
 
+    <input  id ="searchBar" class="form-control " type="search"
+    [(ngModel)]="searchParam" (input)="updateSuggestions();"
+    placeholder="Search for Events" list="suggestions-list" aria-label="Search" #searchTerm>
+
+    <datalist id="suggestions-list" >
+
+      <div *ngFor="let suggestion of suggestions">
+        <option (click)="searchParam=suggestion;updateSuggestions();">{{suggestion}}</option>
+      </div>
+
+    </datalist>
+
+    <button id="searchBtn" class="btn btn-outline-success "  (click)="searchEvents(searchTerm.value)">Search</button>
 
  </div>
 
@@ -42,29 +46,55 @@
 <div style="float: right;" class="btn-group btn-group" role="group" aria-label="...">
   <button type="button" class="btn btn-outline-info"
     (click)="sortByPrice()" [ngClass]="{active: checkSortParam('Price') } "
-  >Price</button>
+  >
+  <i *ngIf="isAscendingPriceSort" class="fas fa-sort-amount-up"></i>
+  <i *ngIf="!isAscendingPriceSort" class="fas fa-sort-amount-down"></i>
+  Price</button>
   <button type="button" class="btn btn-outline-danger"
     (click)="sortByRating()" [ngClass]="{active: checkSortParam('Rating') } "
-  >Rating</button>
+  >
+  <i *ngIf="isAscendingRatingSort" class="fas fa-sort-amount-up"></i>
+  <i *ngIf="!isAscendingRatingSort" class="fas fa-sort-amount-down"></i>
+  Rating</button>
 </div>
 
 <div style="justify-content: center;" class="row row-cols-1 row-cols-md-3">
   <h2 style="margin: 1rem;" *ngIf= "filteredEvents.length==0">No events!</h2>
 </div>
-<div class="row row-cols-1 row-cols-md-3">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
 
 
   <div *ngFor='let event of filteredEvents' >
 
     <div class="col mb-4">
 
-      <div class="card" (click)="navigateToDetail(event)" [ngClass]="{hot: checkHotness(event),cool: !checkHotness(event)}"
-      >
-      <span *ngIf="checkHotness(event)" style=" color: antiquewhite; text-align: center; background-color: crimson; justify-content: center;">UPCOMING!</span>
-        <img src={{event.imgUrl}} class="card-img-top" alt={{event.name}}>
+      <div class="card" (click)="navigateToDetail(event)" [ngClass]="checkHotness(event)">
+      <span *ngIf="checkHotness(event)?.hot" style=" color: antiquewhite; text-align: center; background-color: crimson; justify-content: center;">UPCOMING!</span>
+        <img src={{event.imgUrl}} class="card-img-top img-fluid" alt={{event.name}}>
         <div class="card-body">
-          <h5 class="card-title">{{event.name}}</h5>
-          <p class="card-text">{{event.artists}}</p>
+
+            <div class="d-flex justify-content-between">
+
+              <div class="d-flex flex-column bd-highlight mb-3">
+
+                <h5 class="card-title">{{event.name}}</h5>
+                <p class="card-text">{{event.artists}}</p>
+
+              </div>
+
+              <div class="d-flex flex-column bd-highlight mb-3">
+
+                <p class="card-text"><i class="fas fa-star"></i>{{event.rating}}</p>
+                <p class="card-text"> <i class="fas fa-dollar-sign"></i> {{event.price}}</p>
+
+              </div>
+
+            </div>
+
+
+
+
+
         </div>
       </div>
     </div>

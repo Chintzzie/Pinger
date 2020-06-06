@@ -27,9 +27,6 @@ export class EventDataService implements OnInit{
       this.events.forEach(event=>eventNames.push(event.name));
       return eventNames;
     }));
-
-    this.events.forEach(event=>eventNames.push(event.name));
-    return of(eventNames);
   }
 
   getEvents():Observable<Event[]>{

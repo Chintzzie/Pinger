@@ -2,7 +2,6 @@
 .hot{
   border-color: red;
   border-style: dashed;
-  background-color: chartreuse;
 }
 
 
@@ -16,10 +15,27 @@
 }
 
 #searchBar{
-  width: 60vw;
-  margin: 1em;
+  width: 79%;
+  margin:0
+}
+#searchBtn{
+  width: 20%;
+  margin:0;
+}
+
+.searchForm{
+  margin: 0;
+  width: 100%;
 }
 
 .card{
   margin-top:1em;
+}
+
+.fa-star{
+  color: yellow;
+}
+
+.fa-dollar-sign{
+  color: green;
 }

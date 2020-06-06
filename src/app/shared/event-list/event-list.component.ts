@@ -24,11 +24,10 @@ export class EventListComponent implements OnInit {
   isAscendingPriceSort:Boolean=true;
   selectedSortBy:String="";
   filteredBy:String="";
-  searchVal:String="";
   searchTerm:string="";
   eventNames:string[];
   suggestions:string[];
-  searchIn;
+  searchParam:string;
 
   ngOnInit(): void {
     this.eventDataService.getEvents().subscribe(data=> {
@@ -43,18 +42,13 @@ export class EventListComponent implements OnInit {
 
 
 
-  update(s){
-    this.searchIn=s;
-    this.searchVal=s;
-    this.updateSuggestions();
-  }
   updateSuggestions(){
-    if (this.searchVal==''){
+    if (this.searchParam==''){
       this.suggestions=[];
       return
 
     }
-    this.suggestions=this.eventNames.filter((eventName)=>eventName.toLowerCase().indexOf(<string>this.searchVal.toLowerCase())>-1);
+    this.suggestions=this.eventNames.filter((eventName)=>eventName.toLowerCase().indexOf(this.searchParam.toLowerCase())>-1);
     this.suggestions=[...new Set(this.suggestions.map(s=>s))];
   }
 
@@ -81,17 +75,17 @@ export class EventListComponent implements OnInit {
     this.router.navigate(['events',event.name]);
 
   }
-  checkHotness(event:Event):Boolean{
+  checkHotness(event:Event){
     let a=(new Date(<string>event.date).getTime()-new Date().getTime());
     const period=2*24*1000*60*60;
     if (a<0)
-      a=a*-1;
+      return {cool: true};
 
     if (a<=period){
-      return true;
+      return {hot:true};
     }
     else
-      return false;
+      return {}
   }
 
   checkFilterParam(criteria:String):Boolean{

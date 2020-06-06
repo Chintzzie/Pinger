@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { EventListComponent } from './shared/event-list/event-list.component';
 import { EventDetailComponent } from './shared/event-detail/event-detail.component';
+import { LoginComponent } from './shared/login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { EventDetailComponent } from './shared/event-detail/event-detail.compone
       {path:'',component:EventListComponent},
       {
         path:"events/:name",component:EventDetailComponent
+      },
+      {
+        path:"login",component:LoginComponent
       }
     ]),
     SharedModule,
