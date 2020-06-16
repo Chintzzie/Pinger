@@ -1,0 +1,19 @@
+[cDroppable]{
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+}
+
+.focus{
+  background-color: blue;
+}
+
+.error{
+  background-color: red;
+}
+
+.success{
+  background-color: green;
+}
+
+

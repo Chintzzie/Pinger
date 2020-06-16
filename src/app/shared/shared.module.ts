@@ -7,6 +7,13 @@ import { RatingStarComponent } from './rating-star/rating-star.component';
 import {JQ_TOKEN } from './services/jquery.service';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { RouterModule } from '@angular/router';
+import { SearchFormComponent } from './search-form/search-form.component';
+import { EventCardComponent } from './event-card/event-card.component';
+import { PasswordModule } from '../components/password/password.module';
+import { DragDropModule } from '../components/drag-drop/drag-drop';
+import { EventCompareComponent } from './event-compare/event-compare.component';
 
 
 
@@ -15,12 +22,19 @@ import { LoginComponent } from './login/login.component';
     EventListComponent,
     EventDetailComponent,
     RatingStarComponent,
-    LoginComponent],
+    LoginComponent,
+    RegisterComponent,
+    SearchFormComponent,
+    EventCardComponent,
+    EventCompareComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
+    PasswordModule,
+    DragDropModule
   ],
   exports:[LoginComponent]
 })

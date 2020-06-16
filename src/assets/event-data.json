@@ -1,7 +1,7 @@
 [
   {
     "name":"Sunburn",
-    "date": "2020-06-20",
+    "date": "2020-06-11",
     "artists": ["DJ kshmr","Bieber"],
     "rating": 8.3,
     "imgUrl": "assets/imgs/1.jpg",
@@ -11,7 +11,7 @@
   {
     "name":"HackMusic",
     "date": "2020-07-12",
-    "artists": ["Pitbull","Bieber"],
+    "artists": ["Reddy","Bieber"],
     "rating": 7.5,
     "imgUrl": "assets/imgs/2.jpg",
     "price": 63.0,
@@ -29,14 +29,14 @@
   {
     "name":"HOTmusic",
     "date": "2019-01-16",
-    "artists": ["Jennifer Lopez","Selena Gomez"],
+    "artists": ["Jennifer Lopez","Selena Gomez","asdddddddddddddddddddd","asddddddddddddddddddddddddddddddddddddddddddd"],
     "rating": 7.0,
     "imgUrl": "assets/imgs/4.jpg",
     "price": 84,
     "category": "Electronic"
   },
   {
-    "name":"Sunburn",
+    "name":"Acapella Fest",
     "date": "2020-05-31",
     "artists": ["DJ kshmr","Bieber"],
     "rating": 8.3,
@@ -45,7 +45,7 @@
     "category": "Electronic"
   },
   {
-    "name":"HackMusic",
+    "name":"Acoustic Energy",
     "date": "2019-01-16",
     "artists": ["Pitbull","Bieber"],
     "rating": 7.5,
@@ -54,7 +54,7 @@
     "category": "Jazz"
   },
   {
-    "name":"BreakRock",
+    "name":"Alpha Wave Sounds",
     "date": "2019-01-16",
     "artists": ["Eminem","MJ"],
     "rating": 8.9,
@@ -63,7 +63,7 @@
     "category": "Rock"
   },
   {
-    "name":"HOTmusic",
+    "name":"BigFoot",
     "date": "2019-01-16",
     "artists": ["Jennifer Lopez","Selena Gomez"],
     "rating": 7.0,
@@ -72,7 +72,7 @@
     "category": "Electronic"
   },
   {
-    "name":"Sunburn",
+    "name":"Chord Battle",
     "date": "2020-05-31",
     "artists": ["DJ kshmr","Bieber"],
     "rating": 8.3,
@@ -81,7 +81,7 @@
     "category": "Electronic"
   },
   {
-    "name":"HackMusic",
+    "name":"Dance Burn",
     "date": "2019-01-16",
     "artists": ["Pitbull","Bieber"],
     "rating": 7.5,
@@ -90,7 +90,7 @@
     "category": "Jazz"
   },
   {
-    "name":"BreakRock",
+    "name":"Electric Parrot",
     "date": "2019-01-16",
     "artists": ["Eminem","MJ"],
     "rating": 8.9,
@@ -99,7 +99,7 @@
     "category": "Rock"
   },
   {
-    "name":"HOTmusic",
+    "name":"Fiesta Fest",
     "date": "2019-01-16",
     "artists": ["Jennifer Lopez","Selena Gomez"],
     "rating": 7.0,
@@ -107,7 +107,7 @@
     "price": 84,
     "category": "Electronic"
   },{
-    "name":"Sunburn",
+    "name":"Folk Vibes",
     "date": "2020-05-31",
     "artists": ["DJ kshmr","Bieber"],
     "rating": 8.3,
@@ -116,7 +116,7 @@
     "category": "Electronic"
   },
   {
-    "name":"HackMusic",
+    "name":"Forestland Festival",
     "date": "2019-01-16",
     "artists": ["Pitbull","Bieber"],
     "rating": 7.5,
@@ -125,7 +125,7 @@
     "category": "Jazz"
   },
   {
-    "name":"BreakRock",
+    "name":"Indigo Musik",
     "date": "2019-01-16",
     "artists": ["Eminem","MJ"],
     "rating": 8.9,
@@ -134,7 +134,7 @@
     "category": "Rock"
   },
   {
-    "name":"HOTmusic",
+    "name":"Lost Lands",
     "date": "2019-01-16",
     "artists": ["Jennifer Lopez","Selena Gomez"],
     "rating": 7.0,

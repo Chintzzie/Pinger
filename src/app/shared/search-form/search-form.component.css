@@ -1,0 +1,13 @@
+#searchBar{
+  width: 79%;
+  margin:0
+}
+#searchBtn{
+  width: 20%;
+  margin:0;
+}
+
+.searchForm{
+  margin: 0;
+  width: 100%;
+}

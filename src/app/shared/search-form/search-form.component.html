@@ -1,0 +1,19 @@
+<div  class="form-inline searchForm" >
+
+  <input  id ="searchBar" class="form-control " type="search"
+  [(ngModel)]="searchParam" (input)="updateSuggestions();"
+  placeholder="Search for Events" list="suggestions-list" aria-label="Search" #searchTerm>
+
+  <datalist id="suggestions-list" >
+
+    <div *ngFor="let suggestion of suggestions">
+      <option (click)="searchParam=suggestion;updateSuggestions();">{{suggestion}}</option>
+    </div>
+
+  </datalist>
+
+
+  <button id="searchBtn" class="btn btn-outline-success "  (click)="searchList()">Search</button>
+
+
+</div>

@@ -20,12 +20,16 @@ export class EventDataService implements OnInit{
   }
 
 
-  getAllEventNames():Observable<string[]>{
-    let eventNames=[];
+  getAllEventParamNames():Observable<string[]>{
+    let eventParamNames=[];
     return this.http.get<Event[]>(this.resourcePath).pipe(map(events=>{
       this.events=events;
-      this.events.forEach(event=>eventNames.push(event.name));
-      return eventNames;
+      this.events.forEach(event=>{
+        eventParamNames.push(event.name);
+        eventParamNames.push(event.category);
+        event.artists.forEach(artist=> eventParamNames.push(artist));
+      });
+      return eventParamNames;
     }));
   }
 
@@ -43,6 +47,7 @@ export class EventDataService implements OnInit{
     else
       return of(this.events.slice(0,batchSize*batchNumber));
   }
+
   getEvent(eventName:String):Observable<Event>{
     let selectedEvent:Event;
     this.events.forEach((event)=>{
@@ -53,9 +58,21 @@ export class EventDataService implements OnInit{
 
   }
 
-  getEventsByName(searchTerm:string,batchSize,batchNumber):Observable<Event[]>{
+  filterListsByTerm(searchTerm:string,artists):Boolean{
+    for(let i=0;i<artists.length;i++)
+    {
+      if (artists[i].toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase())>-1 ){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  getEventsByParamNames(searchTerm:string,batchSize,batchNumber):Observable<Event[]>{
     this.filteredEvents=this.events.filter(event=>
-      searchTerm=='' ||  event.name.toLocaleLowerCase().indexOf(searchTerm.toLowerCase())>-1
+      searchTerm=='' ||  event.name.toLocaleLowerCase().indexOf(searchTerm.toLowerCase())>-1 ||
+      event.category.toLocaleLowerCase().indexOf(searchTerm.toLowerCase())>-1 ||
+      this.filterListsByTerm(searchTerm,event.artists)
       )
     if (batchSize*batchNumber>=this.filteredEvents.length)
       return of(this.filteredEvents);
@@ -63,5 +80,8 @@ export class EventDataService implements OnInit{
       return of(this.filteredEvents.slice(0,batchSize*batchNumber));
   }
 
+  getAllEvents():Observable<Event[]>{
+    return this.http.get<Event[]>(this.resourcePath);
+  }
 
 }

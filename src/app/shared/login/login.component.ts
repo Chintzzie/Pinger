@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, FormControlName, EmailValidator,AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -10,7 +10,7 @@ declare let $:any;
 function custEmailValidator(context:LoginComponent){
   return (c: AbstractControl) =>{
     let val:string=c.value;
-    if (val==''){
+    if (val=='' || val==null){
 
       return { invalidity: "Email is required!" };
     }
@@ -32,20 +32,36 @@ function custEmailValidator(context:LoginComponent){
 })
 export class LoginComponent implements OnInit {
 
+
   EmailLoading:Boolean=false;
   loading:Boolean=false;
   loginForm: FormGroup;
   isEmailValid;
+  emailEntering:Boolean=false;
   invalidPwd:Boolean=false;
   showErrorsEmail:Boolean=false;
+
+
+
+
+
+
+
+
+
+
+
+
+  changeLog: string[] = [];
 
   constructor(private router:Router,
               private fb:FormBuilder,
               private authService:AuthService,
               private notificationService:NotificationService) { }
 
-  ngOnInit(): void {
 
+
+  ngOnInit(): void {
     this.loginForm=this.fb.group({
       userName:['',[
         custEmailValidator(this)
@@ -53,19 +69,37 @@ export class LoginComponent implements OnInit {
       ],
       password:['',[Validators.required]]
     });
+
     this.loginForm.controls.userName.valueChanges.pipe(
       tap(()=>{
         this.showErrorsEmail=false;
-        if (this.loginForm.controls.userName.valid){
-          this.EmailLoading=true;
-        }
       }),
       debounceTime(1000),
     ).subscribe(()=>{
       this.showErrorsEmail=true;
-      this.validateEmail();
     });
 
+  }
+
+  resetForm(){
+    console.log("resetting form");
+    this.loginForm.reset();
+  }
+
+  toRegister(){
+    $("#exampleModal").modal("toggle");
+    this.router.navigate(['register']);
+
+  }
+
+  initiateValidation(isFocused){
+    this.emailEntering=isFocused;
+    if (isFocused)
+      return;
+    if(this.loginForm.controls.userName.valid){
+      this.EmailLoading=true;
+      this.validateEmail();
+    }
   }
 
   validateEmail(){
@@ -76,7 +110,6 @@ export class LoginComponent implements OnInit {
     this.authService.validateEmail(<string>this.loginForm.controls.userName.value).subscribe(
       (result:Boolean)=>{
         this.EmailLoading=true;
-        console.log("validating email");
         if(result)
         {
 
@@ -96,8 +129,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.get("userName").value,this.loginForm.get("password").value).
     subscribe((isLoggedIn)=>{
       if(isLoggedIn){
-        this.loginForm.get("password").setValue("");
-        this.loginForm.get("userName").setValue("");
+        this.resetForm();
         $('#exampleModal').modal('toggle');
         this.notificationService.log("Logged in!");
       }

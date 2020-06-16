@@ -1,0 +1,38 @@
+.hot{
+  border-color: red;
+  border-style: dashed;
+}
+
+
+.column1{
+
+  white-space:  nowrap;
+  width: 70%;
+  display:inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}
+
+.cool img {
+  filter: grayscale(100%);
+}
+
+.card:hover{
+  transform: scale(1.1);
+
+}
+
+.card{
+  margin-top:1em;
+}
+
+.fa-star{
+  color: yellow;
+}
+
+.fa-dollar-sign{
+  color: green;
+}
+
+

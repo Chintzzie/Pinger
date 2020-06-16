@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Event } from '../models/event';
 import { EventDataService } from '../services/event-data.service';
 import { Router } from '@angular/router';
-import {JQ_TOKEN } from '../services/jquery.service';
 
 declare var $: any;
 @Component({
@@ -25,9 +24,7 @@ export class EventListComponent implements OnInit {
   selectedSortBy:String="";
   filteredBy:String="";
   searchTerm:string="";
-  eventNames:string[];
-  suggestions:string[];
-  searchParam:string;
+  eventParamNames:string[];
 
   ngOnInit(): void {
     this.eventDataService.getEvents().subscribe(data=> {
@@ -35,27 +32,15 @@ export class EventListComponent implements OnInit {
       this.filteredEvents=this.events;
 
     });
-    this.eventDataService.getAllEventNames().subscribe(data=>{
-      this.eventNames=data;
+    this.eventDataService.getAllEventParamNames().subscribe(data=>{
+      this.eventParamNames=data;
     })
-  }
-
-
-
-  updateSuggestions(){
-    if (this.searchParam==''){
-      this.suggestions=[];
-      return
-
-    }
-    this.suggestions=this.eventNames.filter((eventName)=>eventName.toLowerCase().indexOf(this.searchParam.toLowerCase())>-1);
-    this.suggestions=[...new Set(this.suggestions.map(s=>s))];
   }
 
   searchEvents(searchTerm:string):void{
     this.batchToBeLoaded=1;
     this.searchTerm=searchTerm;
-    this.eventDataService.getEventsByName(searchTerm,this.batchSize,this.batchToBeLoaded).subscribe(events=>{
+    this.eventDataService.getEventsByParamNames(searchTerm,this.batchSize,this.batchToBeLoaded).subscribe(events=>{
       this.events=events;
       this.filteredEvents=this.events;
       this.filterBy(this.filteredBy);
@@ -64,29 +49,21 @@ export class EventListComponent implements OnInit {
 
   loadMoreEvents():void{
     this.batchToBeLoaded+=1;
-    this.eventDataService.getEventsByName(this.searchTerm,this.batchToBeLoaded,this.batchSize).subscribe(events=>{
+    this.eventDataService.getEventsByParamNames(this.searchTerm,this.batchToBeLoaded,this.batchSize).subscribe(events=>{
       this.events=events;
       this.filterBy(this.filteredBy);
-
+      if (this.selectedSortBy=='Rating'){
+        this.sortByRating();
+        this.sortByRating();
+      }
+      else{
+        this.sortByPrice();
+        this.sortByPrice();
+      }
     })
   }
 
-  navigateToDetail(event:Event):void{
-    this.router.navigate(['events',event.name]);
 
-  }
-  checkHotness(event:Event){
-    let a=(new Date(<string>event.date).getTime()-new Date().getTime());
-    const period=2*24*1000*60*60;
-    if (a<0)
-      return {cool: true};
-
-    if (a<=period){
-      return {hot:true};
-    }
-    else
-      return {}
-  }
 
   checkFilterParam(criteria:String):Boolean{
     if (this.filteredBy==criteria)

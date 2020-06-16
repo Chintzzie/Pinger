@@ -1,0 +1,26 @@
+<div class="card" (click)="navigateToDetail(event)" [ngClass]="checkHotness(event)">
+
+  <span *ngIf="checkHotness(event)?.hot" style=" color: antiquewhite; text-align: center; background-color: crimson; justify-content: center;">UPCOMING!</span>
+    <img src={{event.imgUrl}} class="card-img-top img-fluid" alt={{event.name}}>
+    <div class="card-body">
+
+        <div class="d-flex justify-content-between">
+
+          <div class="column1 d-flex flex-column bd-highlight mb-3">
+
+            <h5 class="card-title">{{event.name}}</h5>
+            <p class="card-text">{{event.artists}}</p>
+
+          </div>
+
+          <div class=" column2 d-flex flex-column bd-highlight mb-3">
+
+            <p class="card-text"><i class="fas fa-star"></i>{{event.rating}}</p>
+            <p class="card-text"> <i class="fas fa-dollar-sign"></i> {{event.price}}</p>
+
+          </div>
+
+        </div>
+    </div>
+
+</div>
