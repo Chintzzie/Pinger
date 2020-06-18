@@ -7,15 +7,15 @@
 
     <h3>Available Events</h3>
 
-    <ol *ngFor="let availableEvent of Names.availableEvents" >
+    <ul *ngFor="let availableEvent of Names.availableEvents" >
 
-      <li  [toBeDroppedAt]='["selectedEvents","droppableEvents"]'
+      <li  toBeDroppedAt="selectedEvents droppableEvents"
       cDraggable="availableEvents"
       [draggedData]="availableEvent"
       focusClassName="focus"
       >{{availableEvent.name}}</li>
 
-    </ol>
+    </ul>
 
   </div>
 
@@ -28,15 +28,15 @@
 
     <h3>Droppable Events</h3>
 
-    <ol *ngFor="let droppableEvent of Names.droppableEvents" >
+    <ul *ngFor="let droppableEvent of Names.droppableEvents" >
 
-      <li  toBeDroppedAt="selectedEvents"
+      <li  toBeDroppedAt='selectedEvents availableEvents'
       cDraggable="droppableEvents"
       [draggedData]="droppableEvent"
       focusClassName="focus"
       >{{droppableEvent.name}}</li>
 
-    </ol>
+    </ul>
 
   </div>
 
@@ -49,7 +49,7 @@
 
     <h3>Selected Events</h3>
 
-    <ol *ngFor="let selectedEvent of Names.selectedEvents">
+    <ul *ngFor="let selectedEvent of Names.selectedEvents">
 
       <li  toBeDroppedAt="availableEvents"
       [draggedData]="selectedEvent"
@@ -57,7 +57,7 @@
       cDraggable="selectedEvents"
       >{{selectedEvent.name}}</li>
 
-    </ol>
+    </ul>
 
   </div>
 

@@ -1,7 +1,20 @@
 <br>
 <input appPassword  placeholder="Enter some input">
 <br>
+<hr>
+<div *ngFor="let value of values">
+  {{value}}
+</div>
+
+<pchips [values]="values"  (valuesChanged)="onChangeValues($event)" seperators=", ;">
+  <ng-template let-some="pchip" #pchips>
+    <i class="fa fa-user"></i> {{some}}
+  </ng-template>
+</pchips>
+
+<hr>
 
 <app-event-compare></app-event-compare>
+
 
 

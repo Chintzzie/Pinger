@@ -14,6 +14,7 @@ import { EventCardComponent } from './event-card/event-card.component';
 import { PasswordModule } from '../components/password/password.module';
 import { DragDropModule } from '../components/drag-drop/drag-drop';
 import { EventCompareComponent } from './event-compare/event-compare.component';
+import { ChipsModule } from '../components/chips/chips.module';
 
 
 
@@ -34,7 +35,8 @@ import { EventCompareComponent } from './event-compare/event-compare.component';
     ReactiveFormsModule,
     RouterModule,
     PasswordModule,
-    DragDropModule
+    DragDropModule,
+    ChipsModule
   ],
   exports:[LoginComponent]
 })

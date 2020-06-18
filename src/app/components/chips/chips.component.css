@@ -1,0 +1,36 @@
+.chip{
+  display: inline-block;
+  margin-left: 5px;
+  margin-top: 5px;
+  background-color: blue;
+  color: antiquewhite;
+  padding:  .2em .5em;
+}
+
+i{
+  margin-left: 0.5em;
+  float: inline-end;
+}
+
+.chipsHolder{
+  display: inline;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.chipInput{
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left:5px ;
+  border: none;
+  outline: none;
+}
+
+.chipsComponent{
+  border-width: thin;
+  border-style: solid;
+}
+
+.chip-content{
+  display: inline-block;
+}

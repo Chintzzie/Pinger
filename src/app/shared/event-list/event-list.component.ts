@@ -56,7 +56,7 @@ export class EventListComponent implements OnInit {
         this.sortByRating();
         this.sortByRating();
       }
-      else{
+      else if((this.selectedSortBy=='Price')){
         this.sortByPrice();
         this.sortByPrice();
       }

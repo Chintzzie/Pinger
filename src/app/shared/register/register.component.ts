@@ -10,10 +10,17 @@ export class RegisterComponent implements OnInit {
 
   draggedItem:any;
 
+  values:string[]=["Hobbs","Shaw","Xander"];
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  onChangeValues(newValues){
+    this.values=newValues;
+  }
+
 
   onDragStart(event,item){
     console.log("drag started");
