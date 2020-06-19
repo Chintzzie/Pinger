@@ -1,16 +1,25 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, OnChanges, SimpleChanges, DoCheck, ContentChild, TemplateRef, Output, EventEmitter } from '@angular/core';
+import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
+
 import {cUtil} from '../util/utilfiles';
 
 @Component({
   selector: 'pchips',
   templateUrl: './chips.component.html',
-  styleUrls: ['./chips.component.css']
+  styleUrls: ['./chips.component.css'],
+  providers:[{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: ChipsComponent,
+    multi: true
+  }]
 })
-export class ChipsComponent implements OnInit,AfterViewInit,DoCheck{
-
-  @Input() values:string[]=[];
+export class ChipsComponent implements OnInit,AfterViewInit,DoCheck,ControlValueAccessor{
 
   @Input() seperators:string[]=[];
+
+  @Input() chipStyle:any;
+
+  @Input() chipSetStyle:any;
 
   @Output() valuesChanged:EventEmitter<any>=new EventEmitter<String[]>();
 
@@ -18,9 +27,32 @@ export class ChipsComponent implements OnInit,AfterViewInit,DoCheck{
 
   @ContentChild('pchips') customTemplate:TemplateRef<any>;
 
+  values:string[]=[];
+
+  valuesOnChanged:Function;
+
+  valuesOnTouched:Function;
+
   constructor() { }
 
+  writeValue(obj: string[]): void {
+    this.values=obj;
+  }
+
+  registerOnChange(fn: any): void {
+    this.valuesOnChanged=fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.valuesOnTouched=fn;
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+  }
+
   inputHTMLElement:HTMLElement;
+
+
 
   ngDoCheck(): void {
     this.seperators=cUtil.convertToStringArray(
@@ -38,6 +70,7 @@ export class ChipsComponent implements OnInit,AfterViewInit,DoCheck{
 
   focusInput(event:FocusEvent){
     this.inputHTMLElement.focus();
+
   }
 
   addItem(value:string):void{
@@ -47,7 +80,7 @@ export class ChipsComponent implements OnInit,AfterViewInit,DoCheck{
     }
     this.values=[...this.values,value];
     this.inputElement.nativeElement.value="";
-    this._valuesChanged();
+    this.valuesOnChanged(this.values);
 
   }
 
@@ -62,13 +95,12 @@ export class ChipsComponent implements OnInit,AfterViewInit,DoCheck{
     }
     this.values=this.values.filter((value,i)=>i!=index);
     this.inputElement.nativeElement.value="";
-    this._valuesChanged();
+    this.valuesOnChanged(this.values);
   }
 
-  _valuesChanged(){
-    this.valuesChanged.emit(this.values);
+  onBlur($event){
+    this.valuesOnTouched();
   }
-
 
   onKeyDownOnInput(event: KeyboardEvent){
     switch(event.key){

@@ -1,19 +1,36 @@
+
+<app-table>
+
+</app-table>
+
 <br>
+<h3>Password Strength </h3>
 <input appPassword  placeholder="Enter some input">
 <br>
 <hr>
+
+<h3>Chips </h3>
+
 <div *ngFor="let value of values">
   {{value}}
 </div>
 
-<pchips [values]="values"  (valuesChanged)="onChangeValues($event)" seperators=", ;">
-  <ng-template let-some="pchip" #pchips>
-    <i class="fa fa-user"></i> {{some}}
-  </ng-template>
+<pchips
+  [(ngModel)]="values"
+  [chipSetStyle]="{'border-radius':'3em'}"
+  [chipStyle]="{'border-radius':'3em'}"
+  seperators=", ;"
+ >
+
+ <ng-template let-some="pchip" #pchips>
+  <i class="fa fa-user"></i> asdasd{{some}}
+</ng-template>
+
 </pchips>
 
 <hr>
 
+<h3>Drag & Drop</h3>
 <app-event-compare></app-event-compare>
 
 

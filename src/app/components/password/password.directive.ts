@@ -36,6 +36,7 @@ export class PasswordDirective {
   }
 
   createFeedbackPanel(){
+
     this.feedBackPanel= document.createElement("div");
     this.feedBackPanel.className='password-panel';
     this.info=document.createElement("span");

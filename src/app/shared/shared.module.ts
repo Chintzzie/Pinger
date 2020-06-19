@@ -15,6 +15,7 @@ import { PasswordModule } from '../components/password/password.module';
 import { DragDropModule } from '../components/drag-drop/drag-drop';
 import { EventCompareComponent } from './event-compare/event-compare.component';
 import { ChipsModule } from '../components/chips/chips.module';
+import { TableModule } from '../components/table/table.module';
 
 
 
@@ -36,7 +37,8 @@ import { ChipsModule } from '../components/chips/chips.module';
     RouterModule,
     PasswordModule,
     DragDropModule,
-    ChipsModule
+    ChipsModule,
+    TableModule
   ],
   exports:[LoginComponent]
 })

@@ -1,7 +1,7 @@
-<div class="chipsComponent" (click)="focusInput($event)">
+<div class="chipsComponent" [ngStyle]="chipSetStyle" (click)="focusInput($event)" (blur)="onBlur($event)">
 
     <div class="chipsHolder" *ngFor="let value of values;let i=index">
-      <div class="chip">
+      <div class="chip" [ngStyle]="chipStyle">
 
         <div class="chip-content" >
           <div *ngIf="customTemplate" >
