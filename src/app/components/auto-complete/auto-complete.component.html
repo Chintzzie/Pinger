@@ -1,0 +1,38 @@
+<div class="auto-complete"
+  (mouseenter)="mouseEntered()"
+  (mouseleave)="mouseLeft()"
+  (focusout)="inputBlurred()"
+>
+
+  <!-- <vsfInputBox
+    [inputStyle]="autoCompleteStyle"
+    [placeholder]="promptLabel"
+    (focus)="inputFocused()"
+    (input)="inputChanged()"
+    (keydown)="keyPressedOnInput($event)"
+  >
+  </vsfInputBox> -->
+
+  <input type="text" #inputRef
+    [ngStyle]="autoCompleteStyle"
+    [placeholder]="promptLabel"
+    (focus)="inputFocused()"
+    (input)="inputChanged()"
+    (keydown)="keyPressedOnInput($event)"
+  >
+
+  <vsfSelection-list
+    [customItemTemplate]="suggestionTemplate"
+    [ngClass]="{visible: showSuggestions,invisible: !showSuggestions}"
+    [items]="suggestions"
+    (itemSelected)="suggestionClicked($event,false)"
+    (itemIncluded)="suggestionClicked($event,true)"
+  >
+
+  <!-- <ng-template   vsfTemplate="selectionListItem" let-item="item" >
+    <a href="http://www.google.com/{{item}}">{{item}} from autocomplete</a>
+  </ng-template> -->
+
+  </vsfSelection-list>
+
+</div>

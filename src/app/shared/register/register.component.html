@@ -1,8 +1,19 @@
 
-<app-table>
+<vsf-auto-complete
+  [(ngModel)]="autocompleteval"
+  [autoCompleteStyle]="{width: '50%'}"
+  (termChanged)="suggestionUpdater($event)"
+  [suggestions]="suggestions"
+  (completed)="completeTriggered()"
+>
+<!-- <ng-template let-suggestion="item" vsfTemplate="autoCompleteItem" >
+  <a href="http://www.google.com/{{suggestion}}">{{suggestion}} from register</a>
+</ng-template> -->
 
-</app-table>
+</vsf-auto-complete>
 
+
+<h4>Autocompleteval={{autocompleteval}}</h4>
 <br>
 <h3>Password Strength </h3>
 <input appPassword  placeholder="Enter some input">

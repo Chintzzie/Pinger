@@ -10,11 +10,28 @@ export class RegisterComponent implements OnInit {
 
   draggedItem:any;
 
+  autocompleteval="";
+
+  suggestionsList=["abgc","def","ghi","jkl","zxc","hgz","ozpa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"];
+
+  suggestions;
+
   values:string[]=["Hobbs","Shaw","Xander"];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  completeTriggered(){
+    console.log("complete triggered");
+  }
+
+  suggestionUpdater(key:string){
+
+    key=key.toLowerCase();
+    this.suggestions= this.suggestionsList.filter((value)=>value.toLowerCase().indexOf(key)!=-1)
+
   }
 
   onChangeValues(newValues){
@@ -23,12 +40,10 @@ export class RegisterComponent implements OnInit {
 
 
   onDragStart(event,item){
-    console.log("drag started");
     this.draggedItem=item;
   }
 
   onDragEnd(event,item){
-    console.log("drag ended");
     this.draggedItem=null;
   }
 

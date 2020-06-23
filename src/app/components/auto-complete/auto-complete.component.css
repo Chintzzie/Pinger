@@ -1,0 +1,19 @@
+.auto-complete{
+  margin: 5px;
+}
+
+.auto-complete>input{
+  width: 250px;
+}
+
+.visible{
+  opacity: 1;
+}
+
+.invisible{
+  opacity: 0;
+}
+
+
+
+

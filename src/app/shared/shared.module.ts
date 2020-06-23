@@ -16,6 +16,9 @@ import { DragDropModule } from '../components/drag-drop/drag-drop';
 import { EventCompareComponent } from './event-compare/event-compare.component';
 import { ChipsModule } from '../components/chips/chips.module';
 import { TableModule } from '../components/table/table.module';
+import { AutoCompleteModule } from '../components/auto-complete/auto-complete.module';
+import { SelectionListModule } from '../components/selection-list/selection-list.module';
+import { UtilitiesModule } from '../components/util/utilities.module';
 
 
 
@@ -38,7 +41,10 @@ import { TableModule } from '../components/table/table.module';
     PasswordModule,
     DragDropModule,
     ChipsModule,
-    TableModule
+    TableModule,
+    AutoCompleteModule,
+    SelectionListModule,
+    UtilitiesModule
   ],
   exports:[LoginComponent]
 })

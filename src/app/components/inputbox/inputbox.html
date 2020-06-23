@@ -1,0 +1,9 @@
+<input
+  #inputElement
+  type="text"
+  (focus)="focus.emit($event)"
+  (input)="input.emit($event)"
+  (keydown)="keydown.emit($event)"
+  [placeholder]="placeholder"
+  [ngStyle]="inputStyle"
+>
