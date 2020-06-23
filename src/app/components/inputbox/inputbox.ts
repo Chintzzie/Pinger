@@ -11,12 +11,16 @@ export class Inputbox  implements AfterViewInit{
 
   @Output() focus:EventEmitter<any>=new EventEmitter();
   @Output() input:EventEmitter<any>=new EventEmitter();
-  @Output() keydown:EventEmitter<any>=new EventEmitter();
+  @Output() keypressed:EventEmitter<any>=new EventEmitter();
 
-  @ViewChild('inputElement') inputElement:ElementRef<any>;
+  @ViewChild('inputbox') inputbox:ElementRef<any>;
 
   constructor() { }
+
+  value:string;
+
   ngAfterViewInit(): void {
+
   }
 
 }

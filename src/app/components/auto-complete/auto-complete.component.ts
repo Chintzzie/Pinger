@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ViewChild, TemplateRef, ContentChild, ElementRef, AfterContentInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ViewChild, TemplateRef, ContentChild, ElementRef, AfterContentInit, AfterViewChecked, DoCheck, ViewEncapsulation } from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 import { SelectionListComponent } from '../selection-list/selection-list.component';
 import { VsfTemplateDirective } from '../util/vsf-template.directive';
+import { Inputbox } from '../inputbox/inputbox';
 
 @Component({
   selector: 'vsf-auto-complete',
@@ -13,7 +14,7 @@ import { VsfTemplateDirective } from '../util/vsf-template.directive';
     multi: true
   }]
 })
-export class AutoCompleteComponent implements OnInit,ControlValueAccessor,AfterViewInit,AfterContentInit,AfterViewChecked {
+export class AutoCompleteComponent implements ControlValueAccessor {
 
   @Input() suggestions=[];
 
@@ -27,18 +28,17 @@ export class AutoCompleteComponent implements OnInit,ControlValueAccessor,AfterV
 
   @ContentChild(VsfTemplateDirective) suggestionTemplateDirective:VsfTemplateDirective;
 
-  @ViewChild('inputRef') inputRef:ElementRef<any>;
+  @ViewChild(Inputbox) Inputbox:Inputbox;
 
   @ViewChild(SelectionListComponent) selectionList:SelectionListComponent;
 
   constructor() { }
 
-
   SUGGESTION_TEMPLATE_TAG="autoCompleteItem";
 
   suggestionTemplate:TemplateRef<any>;
 
-  inputElement:HTMLInputElement;
+  inputbox:HTMLDivElement;
 
   showSuggestions:boolean=false;
 
@@ -50,8 +50,11 @@ export class AutoCompleteComponent implements OnInit,ControlValueAccessor,AfterV
 
   focusin=false;
 
-  ngAfterViewChecked(): void {
-    this.selectionList.itemWidth=this.inputElement.offsetWidth+"px";
+  ngDoCheck(): void {
+    if(!!this.inputbox){
+      this.selectionList.itemWidth=this.inputbox.offsetWidth+"px";
+    }
+
   }
 
   ngAfterContentInit(): void {
@@ -61,10 +64,9 @@ export class AutoCompleteComponent implements OnInit,ControlValueAccessor,AfterV
   }
 
   ngAfterViewInit(): void {
-    this.inputElement=this.inputRef.nativeElement;
+    this.inputbox=this.Inputbox.inputbox.nativeElement;
+
   }
-
-
 
   writeValue(obj: any): void {
     if (obj=="" || obj==undefined){
@@ -82,11 +84,12 @@ export class AutoCompleteComponent implements OnInit,ControlValueAccessor,AfterV
   }
 
   ngOnInit(): void {
+    window.onresize=this.ngDoCheck;
   }
 
   triggerCompleted(){
     this.showSuggestions=false;
-    this.inputElement.blur();
+    this.inputbox.blur();
     this.completed.emit(this.value);
   }
 
@@ -102,7 +105,7 @@ export class AutoCompleteComponent implements OnInit,ControlValueAccessor,AfterV
   }
 
   inputChanged(){
-    this.value=this.inputElement.value;
+    this.value=this.Inputbox.value;
     this.onValueChange(this.value);
     if(this.value==""){
       this.showSuggestions=false;
@@ -145,8 +148,8 @@ export class AutoCompleteComponent implements OnInit,ControlValueAccessor,AfterV
   }
 
   suggestionClicked(index,showFurtherSuggestions){
-    this.inputElement.value=this.suggestions[index];
-    this.value=this.inputElement.value;
+    this.Inputbox.value=this.suggestions[index];
+    this.value=this.Inputbox.value;
     if(showFurtherSuggestions)
       this.inputChanged();
     else{

@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, TemplateRef, ContentChild, AfterViewInit, ContentChildren, QueryList, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef, ContentChild, AfterViewInit, ContentChildren, QueryList, Output, EventEmitter, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { VsfTemplateDirective } from '../util/vsf-template.directive';
 
 @Component({
 	selector: 'vsfSelection-list',
 	templateUrl: './selection-list.component.html',
-	styleUrls: ['./selection-list.component.css']
+  styleUrls: ['./selection-list.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SelectionListComponent implements OnInit,AfterViewInit,OnChanges {
 

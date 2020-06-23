@@ -1,27 +1,19 @@
 <div class="auto-complete"
+  [ngStyle]="autoCompleteStyle"
   (mouseenter)="mouseEntered()"
   (mouseleave)="mouseLeft()"
   (focusout)="inputBlurred()"
 >
 
-  <!-- <vsfInputBox
-    [inputStyle]="autoCompleteStyle"
+  <vsfInputBox class="inputBox"
     [placeholder]="promptLabel"
     (focus)="inputFocused()"
     (input)="inputChanged()"
-    (keydown)="keyPressedOnInput($event)"
+    (keypressed)="keyPressedOnInput($event)"
   >
-  </vsfInputBox> -->
+  </vsfInputBox>
 
-  <input type="text" #inputRef
-    [ngStyle]="autoCompleteStyle"
-    [placeholder]="promptLabel"
-    (focus)="inputFocused()"
-    (input)="inputChanged()"
-    (keydown)="keyPressedOnInput($event)"
-  >
-
-  <vsfSelection-list
+  <vsfSelection-list class="selectionList"
     [customItemTemplate]="suggestionTemplate"
     [ngClass]="{visible: showSuggestions,invisible: !showSuggestions}"
     [items]="suggestions"

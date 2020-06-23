@@ -1,16 +1,23 @@
-input{
+.inputbox{
   padding: 0.25em;
   border-style: solid;
   border-color: rgb(165, 165, 165);
   display: block;
+  color: black;
   outline-style: none;
   margin: 5px;
 }
-input:hover{
+.inputbox:hover{
   border-color: black;
 }
 
-input:focus{
+.inputbox:focus-within{
   border-color: rgb(63, 124, 238);
   border-style: outset;
+}
+
+.inputElement{
+  width:100%;
+  border: none;
+  outline: none;
 }

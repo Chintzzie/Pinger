@@ -2,8 +2,12 @@
   margin: 5px;
 }
 
-.auto-complete>input{
-  width: 250px;
+.inputBox{
+  width: 100%;
+}
+
+.selectionList{
+  max-width: 100%;
 }
 
 .visible{
