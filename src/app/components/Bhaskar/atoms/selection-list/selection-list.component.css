@@ -1,0 +1,29 @@
+.selection-list{
+  width: 100%;
+  margin: 0px 5px 5px 5px;
+  border-style: solid;
+  border-color: rgb(248, 248, 248);
+  z-index: 2;
+  position: absolute;
+  color: black;
+  background-color: white;
+  overflow-x: auto;
+}
+
+.selection-item{
+  max-width: 100%;
+  padding-left: 10px;
+}
+
+.hoveredOn{
+  background-color: rgb(83, 156, 251);
+  color: white;
+}
+
+.visible{
+  display: initial;
+}
+
+.invisible{
+  display: none;
+}

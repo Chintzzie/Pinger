@@ -1,0 +1,16 @@
+<table class="tableClass" [style]="tableStyle">
+	<thead>
+		<tr [style]="headerStyle">
+			<th *ngFor="let heading of headings">{{ heading }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr
+			[className]="ind % 2 === 0 ? 'even' : 'odd'"
+			[style]="bodyStyle"
+			*ngFor="let row of data; let ind = index"
+		>
+			<td *ngFor="let col of row">{{ col }}</td>
+		</tr>
+	</tbody>
+</table>

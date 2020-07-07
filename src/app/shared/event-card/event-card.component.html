@@ -1,7 +1,9 @@
 <div class="card" (click)="navigateToDetail(event)" [ngClass]="checkHotness(event)">
 
   <span *ngIf="checkHotness(event)?.hot" style=" color: antiquewhite; text-align: center; background-color: crimson; justify-content: center;">UPCOMING!</span>
-    <img src={{event.imgUrl}} class="card-img-top img-fluid" alt={{event.name}}>
+    <!-- <img src={{event.imgUrl}} class="card-img-top img-fluid" alt={{event.name}}> -->
+    <app-image url={{event.imgUrl}} classes="card-img-top img-fluid"></app-image>
+
     <div class="card-body">
 
         <div class="d-flex justify-content-between">

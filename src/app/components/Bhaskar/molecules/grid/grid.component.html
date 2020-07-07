@@ -1,0 +1,26 @@
+
+<div
+	vsf-Scroller
+	(scrolledToBottom)="scrolledToBottom()"
+	[ngStyle]="gridStyle"
+	class="grid-container"
+	>
+		<div *ngFor="let dataItem of dataList" [class]="columns">
+			<div>
+				<ng-container *ngTemplateOutlet="itemTemplate,context:{item:dataItem}">
+				</ng-container>
+			</div>
+
+		</div>
+</div>
+
+
+<div *ngIf="dataList.length==0" class="no-items">
+	No items to show!<br>
+	<button (click)="scrolledToBottom()">Load More Data!</button>
+</div>
+
+<div *ngIf="showLoading" class="loading">
+	Loading More Data...
+	<i class="fas fa-spinner"></i>
+</div>

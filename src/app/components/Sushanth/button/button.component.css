@@ -1,0 +1,14 @@
+.custom-button {
+	border-radius: 50px;
+}
+
+.btn {
+	border-radius: 3px;
+	box-shadow: inset;
+}
+
+
+
+.w-100 {
+	width: 100%;
+}

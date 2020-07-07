@@ -1,0 +1,25 @@
+<div class="chipsComponent" [ngStyle]="chipSetStyle" (click)="focusInput($event)" (blur)="onBlur($event)">
+
+    <div class="chipsHolder" *ngFor="let value of values;let i=index">
+      <div class="chip" [ngStyle]="chipStyle">
+
+        <div class="chip-content" >
+          <div *ngIf="customTemplate" >
+            <ng-container *ngTemplateOutlet="customTemplate,context:{vsfChip: value}"></ng-container>
+          </div>
+
+          <div *ngIf="!customTemplate">
+            {{value}}
+          </div>
+
+        </div>
+
+        <i class="fas fa-times" (click)="removeItemFromClick($event,i)"></i>
+
+      </div>
+    </div>
+
+    <input class="chipInput" #inputElement (keydown)="onKeyDownOnInput($event)" (paste)="onPasteOnInput($event)">
+
+
+</div>

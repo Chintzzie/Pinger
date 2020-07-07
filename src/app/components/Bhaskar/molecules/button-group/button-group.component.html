@@ -1,0 +1,30 @@
+<div class="button-group" [ngStyle]="buttonGroupStyle">
+	<div
+		class="buttons"
+		*ngFor="let button of buttons;let i=index"
+	>
+		<div class="button"
+			[ngClass]="{active:i==activeIndex}"
+			(click)="buttonClicked(button,i)"
+		>
+
+			<div *ngIf="!customTemplate" class="default-template">
+				<button
+					value={{button.toLocaleUpperCase()}}
+				>
+				</button>
+			</div>
+
+			<div *ngIf="customTemplate" class="custom-template">
+				<ng-container   *ngTemplateOutlet="customTemplate,context:{button:button,state:states[button]}">
+				</ng-container>
+			</div>
+
+		</div>
+
+
+
+
+	</div>
+</div>
+

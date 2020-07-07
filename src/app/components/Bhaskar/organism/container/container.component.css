@@ -1,0 +1,24 @@
+div.autocomplete-bar{
+	margin-top: 0.5em;
+	width:80%;
+	margin-left: 10%;
+}
+
+div.vsf-container{
+	width: 100%;
+}
+
+
+div.controls>div.filter-controls,
+div.controls>div.sort-controls
+{
+	/* display: inline	; */
+}
+
+div.controls>div.filter-controls{
+	float: left;
+}
+
+div.controls>div.sort-controls{
+	float: right;
+}

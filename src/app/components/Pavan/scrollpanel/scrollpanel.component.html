@@ -1,0 +1,10 @@
+<div class = "scroll scrollbar-primary"
+[ngClass] = "{
+    'overflowX':overflowX,
+    'overflowY': overflowY,
+    'scrollbar-primary':theme === 'primary' && (overflowX||overflowY),
+    'scrollbar-success':theme === 'success' && (overflowX||overflowY),
+    'scrollbar-danger':theme === 'danger'  && (overflowX||overflowY)
+}">
+    <ng-content></ng-content>
+</div>

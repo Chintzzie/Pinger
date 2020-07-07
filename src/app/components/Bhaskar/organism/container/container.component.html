@@ -1,0 +1,49 @@
+<div class="vsf-container">
+
+	<div class="controls" >
+
+		<div class="sort-controls">
+			<vsf-button-group
+				[buttons]="sortingProperties"
+				[states]="isAscendingOrder"
+				(clicked)="sortButtonClicked($event)"
+			>
+				<ng-template vsfTemplate="vsfButtonGroup" let-button="button" let-state="state">
+
+					<button
+					>
+						<i *ngIf="state" class="fas fa-sort-amount-up"></i>
+						<i *ngIf="!state" class="fas fa-sort-amount-down"></i>
+						{{button}}
+					</button>
+
+				</ng-template>
+
+			</vsf-button-group>
+		</div>
+
+	</div>
+
+	<br>
+	<br>
+
+	<div class="autocomplete-bar">
+		<vsf-auto-complete
+		[suggestionsList]="suggestionsList"
+		(completed)="search($event)"
+	  	>
+	  	</vsf-auto-complete>
+	</div>
+
+	<div class="vsf-grid" >
+		<vsf-grid
+			[dataList]="dataList"
+			[columns]="columns"
+			[itemTemplate]="itemTemplate"
+			(needMoreData)="loadMoreData()"
+		>
+		</vsf-grid>
+	</div>
+
+</div>
+

@@ -11,14 +11,16 @@ import { RegisterComponent } from './register/register.component';
 import { RouterModule } from '@angular/router';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { EventCardComponent } from './event-card/event-card.component';
-import { PasswordModule } from '../components/password/password.module';
-import { DragDropModule } from '../components/drag-drop/drag-drop';
 import { EventCompareComponent } from './event-compare/event-compare.component';
-import { ChipsModule } from '../components/chips/chips.module';
-import { TableModule } from '../components/table/table.module';
-import { AutoCompleteModule } from '../components/auto-complete/auto-complete.module';
-import { SelectionListModule } from '../components/selection-list/selection-list.module';
-import { UtilitiesModule } from '../components/util/utilities.module';
+import { AutoCompleteModule } from '../components/Bhaskar/molecules/auto-complete/auto-complete.module';
+import { UtilitiesModule } from '../components/Bhaskar/util/utilities.module';
+import { GridModule } from '../components/Bhaskar/molecules/grid/grid.module';
+import { KrishnaModule } from '../components/Krishna/krishna.module';
+import { ScrollPanelModule } from '../components/Pavan/scrollpanel/scrollpanel.module';
+import { TableModule } from '../components/Sushanth/table/table.module';
+import { ButtonModule } from '../components/Sushanth/button/button.module';
+import { IconModule } from '../components/Sushanth/icon/icon.module';
+import { DividerModule } from '../components/Sushanth/divider/divider.module';
 
 
 
@@ -38,13 +40,15 @@ import { UtilitiesModule } from '../components/util/utilities.module';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    PasswordModule,
-    DragDropModule,
-    ChipsModule,
-    TableModule,
     AutoCompleteModule,
-    SelectionListModule,
-    UtilitiesModule
+    GridModule,
+    UtilitiesModule,
+    KrishnaModule,
+    ScrollPanelModule,
+    TableModule,
+    ButtonModule,
+    IconModule,
+    DividerModule
   ],
   exports:[LoginComponent]
 })

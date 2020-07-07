@@ -5,9 +5,23 @@
   </div>
 </div>
 
- <app-search-form [eventParamNames]="eventParamNames" (search)="searchEvents($event)" ></app-search-form>
+ <!-- <app-search-form [eventParamNames]="eventParamNames" (search)="searchEvents($event)" ></app-search-form> -->
 
-  <hr>
+ <app-divider value="List Of Events"></app-divider>
+
+<br>
+
+ <vsf-auto-complete
+ promptLabel="Search for events"
+ [autoCompleteStyle]="{width: '80%'}"
+ [suggestionsList]="eventParamNames"
+ (completed)="searchEvents($event)"
+>
+</vsf-auto-complete>
+
+<hr>
+
+
   <button type="button" class="btn btn-outline-info" (click)="filterBy('')"
   [ngClass]="{active: checkFilterParam('') }" > All </button>
 
@@ -35,22 +49,17 @@
   Rating</button>
 </div>
 
-<div style="justify-content: center;" class="row row-cols-1 row-cols-md-3">
-  <h2 style="margin: 1rem;" *ngIf= "filteredEvents.length==0">No events!</h2>
-</div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
 
 
-  <div *ngFor='let event of filteredEvents' >
+<vsf-grid
+	[dataList]="filteredEvents"
+  columns='col-xs-12 col-sm-6 col-md-4'
+  (needMoreData)="loadMoreEvents()"
+>
+	<ng-template vsfTemplate="grid-item" let-event="item">
+		<app-event-card [event]="event"></app-event-card>
+	</ng-template>
+</vsf-grid>
 
-    <div class="col mb-4">
-      <app-event-card [event]="event"></app-event-card>
-    </div>
-
-  </div>
-
-</div>
 <br>
-<div style="justify-content: center;" class="row row-cols-1 row-cols-md-3">
-  <button class="btn btn-primary btn-md" (click)="loadMoreEvents()">Show More!</button>
-</div>
+
